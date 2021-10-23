@@ -5,4 +5,4 @@ const MONGODB_URI =
 const MONGODB_DB = 'omegascansdb';
 
 export const db_config = { MONGODB_URI, MONGODB_DB };
-export const server = dev ? 'http://localhost:3000' : 'https://';
+export const server = dev ? 'http://localhost:3000' : 'https://www.omega-scans.com/';
