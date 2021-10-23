@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../sass/_base.scss","../../../sass/components/MangaList/PageSwitcher.module.scss"],"names":[],"mappings":"AAAQ;ACER;EACE;EACA;EACA,QDOqB;;ACLrB;EACE;EACA;EACA;EACA;EACA;EACA,YDYS;ECXT,WDyCQ;ECxCR,aDgCM;EC/BN;EDgEF;EC7DE;EACA;EACA,WDZU","file":"PageSwitcher.module.css"}

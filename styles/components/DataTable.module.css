@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Bangers&display=swap");
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 80%;
+  min-width: 280px;
+  background: #111;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.container div {
+  max-width: 280px;
+}
+.container div h4 {
+  color: #999;
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  border-bottom: 2px solid #772db8;
+  margin-left: 10px;
+}
+.container div p {
+  color: #999;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  text-align: justify;
+  margin: 0;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.container .table {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  min-width: 280px;
+  background: #191919;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+}
+.container .table .textFieldOutterContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  min-width: 280px;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background: red;
+  padding: 5px;
+}
+.container .table .textFieldOutterContainer .textFieldContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 220px;
+  justify-content: flex-end;
+}
+.container .table .textFieldOutterContainer .textFieldContainer label {
+  border: 1px solid #772db8;
+  color: #772db8;
+  font-size: 10px;
+  border-radius: 2px;
+  padding: 0 5px 0 5px;
+  margin-bottom: 5px;
+}
+.container .table .textFieldOutterContainer .textFieldContainer input[type=text] {
+  border: 0;
+  outline: 0;
+  width: 220px;
+  color: #999;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.container .table .textFieldOutterContainer .textFieldContainer button,
+.container .table .textFieldOutterContainer .textFieldContainer .baseRating {
+  border: 0;
+  outline: 0;
+  color: #999;
+  background: #000;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 3px;
+  padding: 5px 10px 5px 10px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.container .table .textFieldOutterContainer .textFieldContainer button:hover,
+.container .table .textFieldOutterContainer .textFieldContainer .baseRating:hover {
+  filter: brightness(80%);
+}
+.container .table .textFieldOutterContainer .textFieldContainer .btnSet {
+  background: #772db8;
+  margin-left: 5px;
+}
+.container .table .textFieldOutterContainer .textFieldContainer .activeBaseRating {
+  background: #772db8;
+}
+.container .table .id,
+.container .table .name,
+.container .table .add {
+  background: #151515;
+  border-radius: 2px;
+  padding: 2px 5px 2px 5px;
+}
+.container .table .id {
+  width: 30px;
+  text-align: center;
+  margin-right: 10px;
+}
+.container .table .name {
+  margin-right: 10px;
+}
+.container .table .add {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.container .table .add:hover {
+  color: #fff;
+  background: #772db8;
+}
+.container .table .th {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-align: left;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.container .table .th .id,
+.container .table .th .name {
+  background: #772db8;
+}
+.container .table .tr,
+.container .table .idNname,
+.container .table .editNremove {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+.container .table .tr .id,
+.container .table .idNname .id,
+.container .table .editNremove .id {
+  font-size: 11px;
+  text-align: right;
+  padding-right: 5px;
+}
+.container .table .tr .edit,
+.container .table .tr .remove,
+.container .table .idNname .edit,
+.container .table .idNname .remove,
+.container .table .editNremove .edit,
+.container .table .editNremove .remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.container .table .tr .edit:hover,
+.container .table .idNname .edit:hover,
+.container .table .editNremove .edit:hover {
+  color: #772db8;
+}
+.container .table .tr .remove:hover,
+.container .table .idNname .remove:hover,
+.container .table .editNremove .remove:hover {
+  color: red;
+}
+.container .table .tr {
+  justify-content: space-between;
+}
+.container .table .brBtnContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 250px;
+}
+.container .table .brBtnContainer button,
+.container .table .brBtnContainer .baseRating {
+  border: 0;
+  outline: 0;
+  color: #999;
+  background: #000;
+  text-align: center;
+  font-size: 9px;
+  letter-spacing: 3px;
+  padding: 8px;
+  transform: skew(-20deg);
+  cursor: pointer;
+  transition: 0.1s;
+}
+.container .table .brBtnContainer .activeBaseRating {
+  color: #fff;
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+}
+
+/*# sourceMappingURL=DataTable.module.css.map */

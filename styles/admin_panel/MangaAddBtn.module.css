@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Bangers&display=swap");
+.container {
+  position: absolute;
+  right: 40px;
+  bottom: 5px;
+}
+.container a {
+  display: block;
+  font-size: 12px;
+  font-family: "Roboto Mono", monospace;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #772db8;
+  background: #000;
+  border-radius: 2px;
+  padding: 5px 10px 5px 10px;
+  transition: 0.1s;
+}
+.container a:hover {
+  color: #fff;
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+}
+
+/*# sourceMappingURL=MangaAddBtn.module.css.map */

@@ -1,0 +1,11 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #111;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/*# sourceMappingURL=AdvertisementPanel.module.css.map */

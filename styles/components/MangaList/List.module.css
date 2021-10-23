@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Bangers&display=swap");
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: calc(100vh - 190px);
+}
+.container .element {
+  display: block;
+  position: relative;
+  width: 140px;
+  background: #3333;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.3s;
+}
+.container .element .posterImg {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  z-index: -1;
+}
+.container .element .rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 120px;
+  right: 4px;
+  width: 35px;
+  height: 20px;
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+  font-size: 12px;
+  font-family: "Bangers", cursive;
+  color: #fff;
+  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000;
+  -webkit-text-stroke: #000;
+  border: 2px solid #000;
+  transform: skew(-20deg);
+}
+.container .element h4 {
+  background: #3333;
+  color: #999;
+  font-size: 11px;
+  font-weight: normal;
+  margin: 0;
+  padding: 10px;
+}
+.container .element:hover {
+  transform: translateY(-10px);
+}
+.container .element:hover .posterImg {
+  transform: translate(5px, -5px) scale(1.5);
+}
+.container .element:hover h4 {
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+  color: #fff;
+  text-decoration: underline;
+}
+.container .skeletonForEachElement {
+  position: relative;
+  background: #3333;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+/*# sourceMappingURL=List.module.css.map */

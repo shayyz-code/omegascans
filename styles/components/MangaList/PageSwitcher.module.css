@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Bangers&display=swap");
+.container {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+}
+.container .link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 20px;
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+  font-size: 12px;
+  font-family: "Bangers", cursive;
+  color: #fff;
+  text-shadow: -2px -2px 0 #000, -2px -1px 0 #000, -2px 0px 0 #000, -2px 1px 0 #000, -2px 2px 0 #000, -1px -2px 0 #000, -1px -1px 0 #000, -1px 0px 0 #000, -1px 1px 0 #000, -1px 2px 0 #000, 0px -2px 0 #000, 0px -1px 0 #000, 0px 0px 0 #000, 0px 1px 0 #000, 0px 2px 0 #000, 1px -2px 0 #000, 1px -1px 0 #000, 1px 0px 0 #000, 1px 1px 0 #000, 1px 2px 0 #000, 2px -2px 0 #000, 2px -1px 0 #000, 2px 0px 0 #000, 2px 1px 0 #000, 2px 2px 0 #000;
+  -webkit-text-stroke: #000;
+  border: 2px solid #000;
+  transform: skew(-20deg);
+}
+
+/*# sourceMappingURL=PageSwitcher.module.css.map */

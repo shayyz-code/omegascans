@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Bangers&display=swap");
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #111;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+}
+.container h4 {
+  color: #999;
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: normal;
+  letter-spacing: 3px;
+  border-bottom: 2px solid #772db8;
+  margin-left: 10px;
+}
+.container p {
+  color: #999;
+  font-family: "Roboto Mono", monospace;
+  font-size: 11px;
+  text-align: justify;
+  margin: 0;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+.container .table {
+  font-size: 12px;
+  list-style: none;
+  border-radius: 5px;
+  background: #191919;
+  padding: 10px;
+}
+.container .table li {
+  position: relative;
+  margin-bottom: 5px;
+  color: #999;
+  background: #151515;
+  border-radius: 5px;
+  padding: 10px;
+  overflow: hidden;
+}
+.container .table li .header,
+.container .table li .content,
+.container .table li .postID,
+.container .table li .datetime {
+  margin-bottom: 10px;
+}
+.container .table li .header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.container .table li .header div {
+  display: block;
+  border-radius: 2px;
+  padding: 2px 5px 2px 5px;
+}
+.container .table li .header .byNcommentID {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .table li .header .byNcommentID .by,
+.container .table li .header .byNcommentID .commentID {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 3px;
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+  color: #fff;
+  font-size: 9px;
+  margin-right: 5px;
+}
+.container .table li .header .byNcommentID .commentID {
+  background: transparent;
+  border: 1px solid #772db8;
+  min-width: 30px;
+}
+.container .table li .header .editNremove {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .table li .header .editNremove .edit,
+.container .table li .header .editNremove .remove {
+  transition: 0.1s;
+  cursor: pointer;
+}
+.container .table li .header .editNremove .edit {
+  margin-right: 5px;
+}
+.container .table li .header .editNremove .edit:hover {
+  color: #772db8;
+}
+.container .table li .header .editNremove .editActive {
+  color: #772db8;
+}
+.container .table li .header .editNremove .remove:hover {
+  color: red;
+}
+.container .table li .contentNsubmit {
+  display: flex;
+  flex-direction: column;
+}
+.container .table li .contentNsubmit .content {
+  border: 0;
+  outline: 0;
+  color: #999;
+  background: transparent;
+  margin-left: 10px;
+}
+.container .table li .contentNsubmit button {
+  border: 0;
+  outline: 0;
+  width: fit-content;
+  height: fit-content;
+  font-size: 10px;
+  background: #772db8;
+  border-radius: 2px;
+  color: #999;
+  text-transform: uppercase;
+  padding: 2px 10px 2px 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.3s;
+}
+.container .table li .contentNsubmit button:hover {
+  color: #fff;
+}
+.container .table li .postID {
+  padding-left: 10px;
+}
+.container .table li .postID {
+  width: fit-content;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.container .table li .datetime {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .table li .datetime div {
+  font-size: 11px;
+  background: #111;
+  border-radius: 2px;
+  padding: 2px 5px 2px 5px;
+  margin-right: 5px;
+}
+.container .table .tableTitle {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container .table .tableTitle .dataLength {
+  width: fit-content;
+  border: 1px solid #772db8;
+  border-radius: 2px;
+  padding: 1px 3px 1px 3px;
+  margin-right: 5px;
+}
+.container .table .removeConfirmContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .table .removeConfirmContainer .removeConfirmBtnsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.container .table .removeConfirmContainer .removeConfirmBtnsContainer .removeConfirmCancel,
+.container .table .removeConfirmContainer .removeConfirmBtnsContainer .removeConfirmSubmit {
+  border: 0;
+  outline: 0;
+  background: #772db8;
+  border-radius: 2px;
+  font-size: 11px;
+  color: #999;
+  padding: 2px 10px 2px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.container .table .removeConfirmContainer .removeConfirmBtnsContainer .removeConfirmCancel:hover,
+.container .table .removeConfirmContainer .removeConfirmBtnsContainer .removeConfirmSubmit:hover {
+  color: #fff;
+}
+.container .table .removeConfirmContainer .removeConfirmBtnsContainer .removeConfirmCancel {
+  margin-right: 5px;
+  background: #000;
+}
+
+/*# sourceMappingURL=CommentsDataTable.module.css.map */
