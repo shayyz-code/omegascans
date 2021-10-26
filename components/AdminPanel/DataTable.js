@@ -10,29 +10,56 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from '../../styles/components/DataTable.module.css';
 import DataTableTextField from './DataTableTextField';
 
-export default function DataTable({ getData, pos, children }) {
-  const data = [
-    { id: 1, name: 'Mr. Arthor 1' },
-    { id: 2, name: 'Mr. Arthor 2' },
-    { id: 3, name: 'Mr. Arthor 3' },
-    { id: 4, name: 'Mr. Arthor 4' },
-  ];
-
-  const [textFieldShown, setTextFieldShown] = useState(false);
-  const [textFieldData, setTextFieldData] = useState({ id: null, name: null });
-  const onEditAndAdd = data => {
-    setTextFieldData(data);
-    setTextFieldShown(true);
+export default function DataTable({
+  data,
+  pos,
+  addData,
+  setAddData,
+  editData,
+  setEditData,
+  setRemove_ID,
+  addToDatabase,
+  editToDatabase,
+  removeFromDatabase,
+  children,
+}) {
+  const [addShown, setAddShown] = useState(false);
+  const [editShown, setEditShown] = useState(false);
+  const handleEdit = (_id, name) => {
+    setAddShown(false);
+    setEditShown(true);
+    setEditData({ ...editData, _id: _id, name: name });
+  };
+  const handleAdd = () => {
+    setEditShown(false);
+    setAddShown(true);
+    setAddData({ _id: null, id: null, name: null });
+  };
+  const handleRemove = _id => {
+    setRemove_ID(_id);
+    removeFromDatabase();
   };
   return (
     <div className={styles.container}>
       {pos === 'right' && children}
       <ul className={styles.table}>
-        {textFieldShown && (
+        {editShown && !addShown && (
           <div className={styles.textFieldOutterContainer}>
             <DataTableTextField
-              data={textFieldData}
-              setTextFieldShown={val => setTextFieldShown(val)}
+              data={editData}
+              setData={setEditData}
+              setTextFieldShown={val => setEditShown(val)}
+              toDatabase={editToDatabase}
+            />
+          </div>
+        )}
+        {addShown && !editShown && (
+          <div className={styles.textFieldOutterContainer}>
+            <DataTableTextField
+              data={addData}
+              setData={setAddData}
+              setTextFieldShown={val => setAddShown(val)}
+              toDatabase={addToDatabase}
             />
           </div>
         )}
@@ -43,7 +70,7 @@ export default function DataTable({ getData, pos, children }) {
         </li>
         {data &&
           data.length > 0 &&
-          data.map(({ id, name }, index) => (
+          data.map(({ _id, id, name }, index) => (
             <li key={id} className={styles.tr}>
               <div className={styles.idNname}>
                 <div className={styles.id}>{++index}</div>
@@ -53,21 +80,21 @@ export default function DataTable({ getData, pos, children }) {
               <div className={styles.editNremove}>
                 <div
                   className={styles.edit}
-                  onClick={() => onEditAndAdd({ id, name })}
+                  onClick={() => handleEdit(_id, name)}
                 >
                   <FontAwesomeIcon icon={faEdit} />
                 </div>
-                <div className={styles.remove}>
+                <div
+                  className={styles.remove}
+                  onClick={() => handleRemove(_id)}
+                >
                   <FontAwesomeIcon icon={faTimesCircle} />
                 </div>
               </div>
             </li>
           ))}
         <li className={styles.tr}>
-          <div
-            className={styles.add}
-            onClick={() => onEditAndAdd({ id: null, name: null })}
-          >
+          <div className={styles.add} onClick={handleAdd}>
             add <FontAwesomeIcon icon={faPlusCircle} />
           </div>
         </li>

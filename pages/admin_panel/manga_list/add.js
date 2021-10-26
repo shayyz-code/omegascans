@@ -6,9 +6,8 @@ import { useState } from 'react';
 import AdminPanelManga from '../../../components/AdminPanel/AdminPanelManga';
 
 export default function AddPost() {
-  const [postAddData, setPostAddData] = useState({});
   const [message, setMessage] = useState('');
-  const handleSubmitToDatabase = async () => {
+  const handleSubmitToDatabase = async postAddData => {
     // save the post
     let response = await fetch('/api/manga_list', {
       method: 'POST',

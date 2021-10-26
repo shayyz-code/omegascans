@@ -1,20 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { storage_config } from '../../backend/storage';
 
 import styles from '../../styles/components/MangaList/Manga.module.css';
 
 export default function Manga({ data }) {
-  const tempData = {
-    comments: [
-      {
-        commentID: 1,
-        by: { email: 'ffg@gmail.com', alias: 'jack' },
-        content: 'nice.',
-        postID: 1,
-        datetime: String(new Date()).split(' '),
-      },
-    ],
-  };
+  // const tempData = {
+  //   comments: [
+  //     {
+  //       commentID: 1,
+  //       by: { email: 'ffg@gmail.com', alias: 'jack' },
+  //       content: 'nice.',
+  //       postID: 1,
+  //       datetime: String(new Date()).split(' '),
+  //     },
+  //   ],
+  // };
 
   return (
     <div className={styles.manga}>
@@ -61,10 +62,11 @@ export default function Manga({ data }) {
             <li>
               Genres:
               <div className={styles.genres}>
-                {data.genres.length &&
-                  data.genres.map((genre, index) => (
-                    <div key={index}>{genre}</div>
-                  ))}
+                {data.genres &&
+                  data.genres.length &&
+                  data.genres
+                    .split(',')
+                    .map((genre, index) => <div key={index}>{genre}</div>)}
               </div>
             </li>
             <li>
@@ -91,19 +93,31 @@ export default function Manga({ data }) {
               <div className={styles.lastUpdatedOn}>{data.lastUpdatedOn}</div>
             </li>
           </ul>
-          <ul className={styles.chapters}>
+          <ul style={{ listStyle: 'none' }}>
+            {data.imgs.length &&
+              data.imgs.map((img, index) => (
+                <li key={index}>
+                  <img
+                    src={img}
+                    alt="Poster"
+                    style={{ width: '100%', maxWidth: 700, minWidth: 270 }}
+                  />
+                </li>
+              ))}
+          </ul>
+          {/* <ul className={styles.chapters}>
             <li className={styles.chaptersHeader}>Chapters</li>
             {data.chapters.length &&
               data.chapters.map((chapter, index) => (
                 <li key={index}>
                   <Link href={`/manga_list/${chapter}`}>
-                    {/*chapter id */}
+                    
                     <a className={styles.chapter}>{chapter}</a>
-                    {/*chapter title */}
+                    
                   </Link>
                 </li>
               ))}
-          </ul>
+          </ul> */}
           {/* <ul className={styles.comments}>
             <li className={styles.commentsHeader}>Comments</li>
             {tempData.comments.map(({ by, postName, datetime }, index) => (

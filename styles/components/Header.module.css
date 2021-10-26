@@ -7,7 +7,6 @@
 }
 .container h1 {
   display: block;
-  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
   color: #fff;
   font-family: "Roboto Mono", monospace;
   font-size: 13px;

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { server } from '../../config';
 
 import styles from '../../styles/components/MangaList/List.module.css';
 
@@ -8,14 +9,12 @@ import SkeletonForEachElement from './SkeletonForEachElement';
 export default function List(props) {
   const [data, setData] = useState(props.data);
 
-  //   useEffect(() => {
-  //     setTimeout(() => {
-  //       fetch('https://jsonplaceholder.typicode.com/posts')
-  //         .then(res => res.json())
-  //         .then(jsonData => setData(jsonData))
-  //         .catch(err => console.error(err));
-  //     }, 5000);
-  //   });
+  useEffect(() => {
+    fetch(`${server}/api/manga_list`)
+      .then(res => res.json())
+      .then(jsonData => setData(jsonData.message))
+      .catch(err => console.error(err));
+  });
 
   const SkeletonList = [];
   for (let i = 0; i < 14; i++) {

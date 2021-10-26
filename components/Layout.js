@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 
 import { useRouter } from 'next/dist/client/router';
 
@@ -15,6 +16,9 @@ export default function Layout({ children }) {
 
   return (
     <div className={styles.grid}>
+      <Head>
+        <title>Omega Scans</title>
+      </Head>
       <div className={styles.header}>
         <Header />
       </div>

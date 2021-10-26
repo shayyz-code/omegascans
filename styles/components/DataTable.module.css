@@ -52,7 +52,6 @@
   min-width: 280px;
   height: 100%;
   backdrop-filter: blur(10px);
-  background: red;
   padding: 5px;
 }
 .container .table .textFieldOutterContainer .textFieldContainer {

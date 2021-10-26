@@ -1,18 +1,19 @@
-import { useState } from 'react';
-
 import styles from '../../styles/components/DataTable.module.css';
 
-export default function DataTableTextField({ data, setTextFieldShown }) {
-  const { id, name } = data;
-  const [valueName, setValueName] = useState(name);
-
+export default function DataTableTextField({
+  data,
+  setData,
+  setTextFieldShown,
+  toDatabase,
+}) {
   const onCancel = () => {
+    setData({ _id: null, id: null, name: null });
     setTextFieldShown(false);
   };
 
   const onSet = () => {
     // Database set
-
+    toDatabase();
     setTextFieldShown(false);
   };
 
@@ -22,9 +23,9 @@ export default function DataTableTextField({ data, setTextFieldShown }) {
       <input
         id="textInput"
         type="text"
-        value={valueName}
+        value={data.name}
         placeholder="Type here"
-        onChange={e => setValueName(e.target.value)}
+        onChange={e => setData({ ...data, name: e.target.value })}
       />
       <button onClick={onCancel}>Cancel</button>
       <button className={styles.btnSet} onClick={onSet}>

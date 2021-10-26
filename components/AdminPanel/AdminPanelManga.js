@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import firebaseApp from '../../backend/firebase';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+// import s3, {storage_config} from '../../backend/storage';
+// import multer from 'multer';
+// import multerS3 from 'multer-s3';
 
-export default function AdminPanelManga({
-  setPostAddData,
-  handleSubmitToDatabase,
-}) {
+export default function AdminPanelManga({ handleSubmitToDatabase }) {
   const [title, setTitle] = useState('');
   const [profile, setProfile] = useState('');
   const [cover, setCover] = useState('');
@@ -18,8 +20,112 @@ export default function AdminPanelManga({
   const [postedOn, setPostedOn] = useState('');
   const [lastUpdatedOn, setLastUpdatedOn] = useState('');
   const [genres, setGenres] = useState('');
-  const [chapters, setChapters] = useState('');
+  const [imgs, setImgs] = useState([]);
+  const [chapters, setChapters] = useState([]);
   const [comments, setComments] = useState([]);
+
+  const handleImgChg = e => {
+    if (e.target.files && e.target.files[0]) {
+      const blob = e.target.files[0];
+      const imgRef = ref(getStorage(firebaseApp), `images/${blob.name}`);
+      uploadBytes(imgRef, blob).then(snapshot => {
+        getDownloadURL(imgRef)
+          .then(url => {
+            setImgs([...imgs, url]);
+            alert('success');
+          })
+          .catch(err => alert(err));
+      });
+      // const params = {
+      //   Body: blob,
+      //   Bucket: `${storage_config.bucket_name}`,
+      //   Key: blob.name,
+      // };
+      // // send the file to spaces
+      // s3.putObject(params)
+      //   .on('build', request => {
+      //     request.httpRequest.headers.Host = `${storage_config.do_spaces}`;
+      //     request.httpRequest.headers['Content-Length'] = blob.size;
+      //     request.httpRequest.headers['Content-Type'] = blob.type;
+      //     request.httpRequest.headers['x-amz-acl'] = 'public-read';
+      //   })
+      //   .send(err => {
+      //     if (err) alert(err);
+      //     else {
+      //       // If there is no error updating the editor with the imageUrl
+      //       setImgs([...imgs, blob.name]);
+      //     }
+      //   });
+    }
+  };
+  const handleProfileChg = e => {
+    if (e.target.files && e.target.files[0]) {
+      const blob = e.target.files[0];
+      const imgRef = ref(getStorage(firebaseApp), `images/${blob.name}`);
+      uploadBytes(imgRef, blob).then(snapshot => {
+        getDownloadURL(imgRef)
+          .then(url => {
+            setProfile(url);
+            alert('success');
+          })
+          .catch(err => alert(err));
+      });
+      // const params = {
+      //   Body: blob,
+      //   Bucket: storage_config.bucket_name,
+      //   Key: blob.name,
+      // };
+      // // send the file to spaces
+      // s3.putObject(params)
+      //   .on('build', request => {
+      //     request.httpRequest.headers.Host = `${storage_config.do_spaces}`;
+      //     request.httpRequest.headers['Content-Length'] = blob.size;
+      //     request.httpRequest.headers['Content-Type'] = blob.type;
+      //     request.httpRequest.headers['x-amz-acl'] = 'public-read';
+      //   })
+      //   .send(err => {
+      //     if (err) alert(err);
+      //     else {
+      //       // If there is no error updating the editor with the imageUrl
+      //       setProfile(blob.name);
+      //     }
+      //   });
+    }
+  };
+  const handleCoverChg = e => {
+    if (e.target.files && e.target.files[0]) {
+      const blob = e.target.files[0];
+      const imgRef = ref(getStorage(firebaseApp), `images/${blob.name}`);
+      uploadBytes(imgRef, blob).then(snapshot => {
+        getDownloadURL(imgRef)
+          .then(url => {
+            setCover(url);
+            alert('success');
+          })
+          .catch(err => alert(err));
+      });
+      // const params = {
+      //   Body: blob,
+      //   Bucket: storage_config.bucket_name,
+      //   Key: blob.name,
+      // };
+      // // send the file to spaces
+      // s3.putObject(params)
+      //   .on('build', request => {
+      //     request.httpRequest.headers.Host = `${storage_config.do_spaces}`;
+      //     request.httpRequest.headers['Content-Length'] = blob.size;
+      //     request.httpRequest.headers['Content-Type'] = blob.type;
+      //     request.httpRequest.headers['x-amz-acl'] = 'public-read';
+      //   })
+      //   .send(err => {
+      //     if (err) alert(err);
+      //     else {
+      //       // If there is no error updating the editor with the imageUrl
+      //       setCover(blob.name);
+      //     }
+      //   });
+    }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,7 +133,7 @@ export default function AdminPanelManga({
     setPostedOn(datetime);
     setLastUpdatedOn(datetime);
     setComments([]);
-    setPostAddData({
+    handleSubmitToDatabase({
       title,
       profile,
       cover,
@@ -42,15 +148,15 @@ export default function AdminPanelManga({
       postedOn,
       lastUpdatedOn,
       genres,
+      imgs,
       chapters,
       comments,
     });
-    handleSubmitToDatabase();
   };
   return (
     <form
       onSubmit={handleSubmit}
-      style={{ display: 'flex', flexDirection: 'column' }}
+      style={{ display: 'flex', flexDirection: 'column', color: '#fff' }}
     >
       <input
         type="text"
@@ -58,18 +164,12 @@ export default function AdminPanelManga({
         onChange={e => setTitle(e.target.value)}
         value={title}
       />
-      <input
-        type="text"
-        placeholder="Profile"
-        onChange={e => setProfile(e.target.value)}
-        value={profile}
-      />
-      <input
-        type="text"
-        placeholder="Cover"
-        onChange={e => setCover(e.target.value)}
-        value={cover}
-      />
+      <label htmlFor="profile">Profile: </label>
+      {profile}
+      <input type="file" id="profile" onChange={handleProfileChg} />
+      <label htmlFor="cover">Cover: </label>
+      {cover}
+      <input type="file" onChange={handleCoverChg} />
       <input
         type="text"
         placeholder="Rating"
@@ -121,12 +221,14 @@ export default function AdminPanelManga({
         onChange={e => setGenres(e.target.value)}
         value={genres}
       />
-      <input
+      {imgs && imgs.length && imgs.map(img => `${img}`)}
+      <input type="file" accept="image/*" onChange={handleImgChg} />
+      {/* <input
         type="text"
         placeholder="Chapters"
         onChange={e => setChapters(e.target.value)}
         value={chapters}
-      />
+      /> */}
       <button>Post</button>
     </form>
   );
