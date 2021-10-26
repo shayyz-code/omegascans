@@ -8,6 +8,7 @@ const ACCESS_KEY_ID = '4U63K5X42RBWFH5UK4TK';
 const SECRET_ACCESS_KEY = 'DTid/76ovPzm8uI7Ye/tj/9/z9ShsDu7xHvMKY03VeA';
 
 export const db_config = { MONGODB_URI, MONGODB_DB };
+
 export const server = dev
   ? 'http://localhost:3000'
   : 'https://www.omega-scans.com';
