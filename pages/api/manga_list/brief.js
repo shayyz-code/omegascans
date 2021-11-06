@@ -1,30 +1,28 @@
 // const { connectToDatabase } = require('../../../backend/db');
 const pool = require('../../../backend/db');
-// const ObjectId = require('mongodb').ObjectId;
 
 export default async function handler(req, res) {
-  // get the post
-  return getPost(req, res);
+  return getPosts(req, res);
 }
 
-async function getPost(req, res) {
-  let { pid } = req.query;
-
+async function getPosts(req, res) {
   try {
     // connect to the database
     // let { db } = await connectToDatabase();
 
     // fetch the posts
-    // let post = await db
+    // let posts = await db
     //   .collection('manga_list')
-    //   .findOne({ _id: new ObjectId(pid) });
-    let post = await pool.query('SELECT * FROM manga_list WHERE _id = $1', [
-      pid,
-    ]);
+    //   .find({})
+    //   .project({ title: 1, profile: 1, rating: 1 })
+    //   .toArray();
+    let posts = await pool.query(
+      'SELECT _id, title, profile, rating FROM manga_list'
+    );
 
     // return the posts
     return res.json({
-      message: JSON.parse(JSON.stringify(post.rows[0])),
+      message: JSON.parse(JSON.stringify(posts.rows)),
       success: true,
     });
   } catch (error) {

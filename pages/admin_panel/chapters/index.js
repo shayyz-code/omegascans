@@ -3,10 +3,10 @@ import { server } from '../../../config';
 
 import styles from '../../../styles/admin_panel/article.module.css';
 
-import List from '../../../components/MangaList/List';
+import ChapterList from '../../../components/MangaList/ChapterList';
 // import SearchBar from '../../../components/MangaList/SearchBar';
 // import FilterBar from '../../../components/MangaList/FilterBar';
-import MangaAddBtn from '../../../components/MangaList/MangaAddBtn';
+import ChapterAddBtn from '../../../components/MangaList/ChapterAddBtn';
 // import PageSwitcher from '../../../components/MangaList/PageSwitcher';
 
 export default function AdminPanelMangaList() {
@@ -15,7 +15,7 @@ export default function AdminPanelMangaList() {
   // const [toNum, setTo] = useState(14);
   useEffect(() => {
     const fetchData = async () => {
-      let res = await fetch(`${server}/api/manga_list/brief`);
+      let res = await fetch(`${server}/api/chapters`);
       let jsonData = await res.json();
       if (jsonData.success) {
         setData(jsonData.message);
@@ -29,7 +29,7 @@ export default function AdminPanelMangaList() {
     <div className={styles.container}>
       {/* <SearchBar /> */}
       {/* <FilterBar /> */}
-      <List data={data} />
+      <ChapterList data={data} />
       {/* <PageSwitcher
         data={data}
         setFrom={val => setFrom(val)}
@@ -37,7 +37,7 @@ export default function AdminPanelMangaList() {
         fromNum={fromNum}
         toNum={toNum}
       /> */}
-      <MangaAddBtn />
+      <ChapterAddBtn />
     </div>
   );
 }

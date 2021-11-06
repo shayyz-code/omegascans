@@ -1,9 +1,9 @@
-import Manga from '../../../components/MangaList/Manga';
-import { server } from '../../../config/index';
+import Manga from '../../../../components/MangaList/Manga';
+import { server } from '../../../../config/index';
 
-import styles from '../../../styles/admin_panel/article.module.css';
+import styles from '../../../../styles/admin_panel/article.module.css';
 
-export default function MangaPost({ post, chapters }) {
+export default function MangaChapter({ post, chapters }) {
   return (
     <div className={styles.container}>
       <Manga data={{ ...post, chapters }} />

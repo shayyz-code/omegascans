@@ -218,8 +218,8 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      authors: authorsData.message,
-      artists: artistsData.message,
+      authors: [], // authorsData.message,
+      artists: [], // artistsData.message,
     },
   };
 }

@@ -6,6 +6,7 @@ export default function Navbar() {
   const links = {
     content: [
       'manga_list',
+      'chapters',
       'authors_and_artists',
       'tags',
       'genres',

@@ -164,6 +164,9 @@
   transform: skew(20deg);
   transition: 0.1s;
 }
+.manga .body .chapters .chapter:hover {
+  color: #fff;
+}
 .manga .body .chapters .chapter:hover:before {
   background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
 }

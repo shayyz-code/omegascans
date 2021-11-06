@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   align-content: flex-start;
   height: calc(100vh - 190px);
+  overflow-y: auto;
 }
 .container .element {
   display: block;

@@ -1,30 +1,30 @@
 // const { connectToDatabase } = require('../../../backend/db');
-const pool = require('../../../backend/db');
 // const ObjectId = require('mongodb').ObjectId;
+const pool = require('../../../backend/db');
 
 export default async function handler(req, res) {
   // get the post
-  return getPost(req, res);
+  return getChapter(req, res);
 }
 
-async function getPost(req, res) {
-  let { pid } = req.query;
+async function getChapter(req, res) {
+  let { cid } = req.query;
 
   try {
     // connect to the database
     // let { db } = await connectToDatabase();
 
     // fetch the posts
-    // let post = await db
-    //   .collection('manga_list')
-    //   .findOne({ _id: new ObjectId(pid) });
-    let post = await pool.query('SELECT * FROM manga_list WHERE _id = $1', [
-      pid,
+    // let chapter = await db
+    //   .collection('chapters')
+    //   .findOne({ _id: new ObjectId(cid) });
+    let chapter = await pool.query('SELECT * FROM chapters WHERE _id = $1', [
+      cid,
     ]);
 
     // return the posts
     return res.json({
-      message: JSON.parse(JSON.stringify(post.rows[0])),
+      message: JSON.parse(JSON.stringify(chapter.rows[0])),
       success: true,
     });
   } catch (error) {
