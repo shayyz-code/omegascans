@@ -97,7 +97,12 @@
   margin-bottom: 10px;
 }
 .chapter .body .content .imgsContainer {
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.chapter .body .content .imgsContainer * {
   margin: 0;
   padding: 0;
 }

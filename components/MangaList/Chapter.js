@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { storage_config } from '../../backend/storage';
+// import Link from 'next/link';
+// import { storage_config } from '../../backend/storage';
 import { useRouter } from 'next/router';
 
 import styles from '../../styles/components/MangaList/Chapter.module.css';
@@ -47,15 +47,17 @@ export default function Chapter({ data }) {
           <ul className={styles.postedContainer}>
             <li>
               Posted by:
-              <div className={styles.postedBy}>{data.postedBy}</div>
+              <div className={styles.postedBy}>{data.postedby}</div>
             </li>
             <li>
               Posted on:
-              <div className={styles.postedOn}>{data.postedOn}</div>
+              <div className={styles.postedOn}>{data.postedon.join(' ')}</div>
             </li>
             <li>
               Last updated on:
-              <div className={styles.lastUpdatedOn}>{data.lastUpdatedOn}</div>
+              <div className={styles.lastUpdatedOn}>
+                {data.lastupdatedon.join(' ')}
+              </div>
             </li>
           </ul>
           <select
@@ -70,18 +72,17 @@ export default function Chapter({ data }) {
                 </option>
               ))}
           </select>
-          <ul className={styles.imgsContainer}>
+          <div className={styles.imgsContainer}>
             {data.imgs.length &&
               data.imgs.map((img, index) => (
-                <li key={index}>
-                  <img
-                    src={img}
-                    alt="Poster"
-                    style={{ width: '100%', maxWidth: 700, minWidth: 270 }}
-                  />
-                </li>
+                <img
+                  key={index}
+                  src={img}
+                  alt="Poster"
+                  style={{ width: '100%', maxWidth: 700, minWidth: 270 }}
+                />
               ))}
-          </ul>
+          </div>
           {/* <ul className={styles.chapters}>
             <li className={styles.chaptersHeader}>Chapters</li>
             {data.chapters.length &&

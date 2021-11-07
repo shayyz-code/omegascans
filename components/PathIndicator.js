@@ -20,7 +20,7 @@ export const cvtPathname2Link = pn => {
 };
 
 export default function PathIndicator() {
-  const path = useRouter().pathname;
+  const path = useRouter().asPath;
   const { pid } = useRouter().query;
 
   const links = cvtPathname2Link(path);

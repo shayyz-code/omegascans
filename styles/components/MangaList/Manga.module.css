@@ -108,6 +108,7 @@
   width: 100%;
   max-width: 800px;
   background: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
   padding: 10px;
 }
 .manga .body .postedContainer {
@@ -150,6 +151,7 @@
   font-size: 11px;
   padding: 5px;
   padding-left: 20px;
+  margin: 5px;
   z-index: 1;
 }
 .manga .body .chapters .chapter::before {

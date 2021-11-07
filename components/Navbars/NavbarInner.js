@@ -1,10 +1,11 @@
 import Link from 'next/link';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 
-import { cvtLink2Name } from '../../PathIndicator';
+import { cvtLink2Name } from '../PathIndicator';
 
 export default function NavbarInner({ heading, links }) {
-  let subPathname = useRouter().pathname.slice(13);
+  let { pathname } = useRouter();
+  let pathArray = pathname.split('/');
 
   const linkNames = cvtLink2Name(links);
 
@@ -16,7 +17,7 @@ export default function NavbarInner({ heading, links }) {
           <Link href={`/admin_panel/${link}`}>
             <a>
               {linkNames[i]}
-              {subPathname === link && <span></span>}
+              {pathArray.includes(link) && <span></span>}
             </a>
           </Link>
         </li>

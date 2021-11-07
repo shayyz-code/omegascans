@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Bangers&display=swap");
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+  font-family: "Roboto Mono", monospace;
+  letter-spacing: 3px;
+}
+.navbar h1 {
+  display: block;
+  width: 200px;
+  color: #999;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.navbar ul {
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  list-style: none;
+  border-bottom: 1px solid #999;
+  margin: 0;
+  padding: 0;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+.navbar ul h2 {
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+  margin: 0;
+  margin-left: 10px;
+}
+.navbar ul a {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 30px;
+  color: #999;
+  font-size: 11px;
+  line-height: 30px;
+  margin-top: 10px;
+  padding-left: 20px;
+  transition: 0.1s;
+  z-index: 1;
+}
+.navbar ul a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 190px;
+  height: 30px;
+  background: #151515;
+  transform: skew(20deg);
+  z-index: -1;
+}
+.navbar ul a:hover {
+  color: #fff;
+}
+.navbar ul a:hover::before {
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+}
+.navbar ul a span {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 5px;
+  height: 30px;
+  background: linear-gradient(35deg, #772db8 0%, #bb00fe 55%, #f800ff 100%);
+  transform: skew(20deg);
+}
+
+/*# sourceMappingURL=Navbar.module.css.map */

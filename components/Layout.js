@@ -6,8 +6,10 @@ import { useRouter } from 'next/dist/client/router';
 import styles from '../styles/components/Layout.module.css';
 import Header from './Header';
 
-import AdminPanelNavbar from './Navbars/AdminPanel/Navbar';
-import UserNavbar from './Navbars/User/Navbar';
+import AdminPanelNavbar from './Navbars/AdminPanel/AdminPanelNavbar';
+import AdminPanelMobileNavbar from './Navbars/AdminPanel/AdminPanelMobileNavbar';
+import UserNavbar from './Navbars/User/UserNavbar';
+import UserMobileNavbar from './Navbars/User/UserMobileNavbar';
 import PathIndicator from './PathIndicator';
 
 export default function Layout({ children }) {
@@ -25,9 +27,13 @@ export default function Layout({ children }) {
       <div className={styles.pathIndicator}>
         <PathIndicator />
       </div>
-      {size.width > 520 && (
+      {size.width > 520 ? (
         <div className={styles.navbar}>
           {isAdminPanel ? <AdminPanelNavbar /> : <UserNavbar />}
+        </div>
+      ) : (
+        <div className={styles.navbar}>
+          {isAdminPanel ? <AdminPanelMobileNavbar /> : <UserMobileNavbar />}
         </div>
       )}
       <div className={styles.article}>{children}</div>

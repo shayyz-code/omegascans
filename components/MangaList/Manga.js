@@ -89,11 +89,13 @@ export default function Manga({ data }) {
             </li>
             <li>
               Posted on:
-              <div className={styles.postedOn}>{data.postedon}</div>
+              <div className={styles.postedOn}>{data.postedon.join(' ')}</div>
             </li>
             <li>
               Last updated on:
-              <div className={styles.lastUpdatedOn}>{data.lastupdatedon}</div>
+              <div className={styles.lastUpdatedOn}>
+                {data.lastupdatedon.join(' ')}
+              </div>
             </li>
           </ul>
           {/* <ul style={{ listStyle: 'none' }}>
