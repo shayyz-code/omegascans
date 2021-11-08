@@ -36,6 +36,7 @@
   transform: translateX(10px);
   overflow: hidden;
   z-index: 1;
+  cursor: pointer;
 }
 .navbar h1 .colIcon::before {
   content: "";

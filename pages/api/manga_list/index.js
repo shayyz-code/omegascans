@@ -108,12 +108,13 @@ async function updatePost(req, res) {
 async function deletePost(req, res) {
   try {
     // connect to the database
-    let { db } = connectToDatabase();
+    // let { db } = connectToDatabase();
 
     // delete the post
-    await db.collection('manga_list').deleteOne({
-      _id: new ObjectId(req.body),
-    });
+    // await db.collection('manga_list').deleteOne({
+    //   _id: new ObjectId(req.body),
+    // });
+    let deletePost = await pool.query("DELETE FROM manga_list WHERE _id = $1", [JSON.parse(req.body)]);
 
     // return a message
     return res.json({

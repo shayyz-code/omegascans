@@ -1,9 +1,9 @@
-import MobileNavbar from '../MobileNavbar';
+import Navbar from '../Navbar';
 
 export default function UserNavbar() {
   const links = {
     Content: ['manga_list'],
   };
 
-  return <MobileNavbar title="OmegaScans" links={links} />;
+  return <Navbar title="OmegaScans" links={links} />;
 }

@@ -10,6 +10,7 @@
   display: block;
   position: relative;
   width: 140px;
+  height: fit-content;
   background: #3333;
   border-radius: 5px;
   overflow: hidden;
@@ -17,6 +18,16 @@
   cursor: pointer;
   z-index: 1;
   transition: 0.3s;
+}
+.container .element .delete {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+.container .element .delete:hover {
+  color: red;
 }
 .container .element .posterImg {
   position: relative;
